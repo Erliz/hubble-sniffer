@@ -1,0 +1,22 @@
+{
+  "name": "hubble-sniffer",
+  "version": "1.0.0",
+  "description": "Grab info from hubble.io camera",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stanislav Vetlovskiy <mrerliz@gmail.com> (https://erliz.ru/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Erliz/hubble-sniffer/issues"
+  },
+  "homepage": "https://github.com/Erliz/hubble-sniffer#readme",
+  "dependencies": {
+    "bluebird": "^3.4.0",
+    "influx": "^4.2.0",
+    "request": "^2.72.0",
+    "winston": "^2.2.0"
+  }
+}

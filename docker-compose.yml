@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+  hubble-sniffer:
+    # image: erliz/hubble-sniffer
+    build: ./
+    container_name: hubble-sniffer
+    hostname: hubble-sniffer
+    environment:
+      NODE_ENV: dev
+      APP_DATA_URL: "http://192.168.88.163/?action=command&command=value_temperature"
+      APP_DB_NAME: home
+      APP_DB_URL: "http://admin:admin@172.17.0.1:8086/"
+      APP_DB_TAGS: '{"type": "room", "name": "child", "position": "corner", "heigth": "middle", "source": "camera"}'
+      APP_TIMEOUT: 60000
+    volumes:
+      - ./:/app
+      - /app/node_modules
