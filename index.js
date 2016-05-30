@@ -13,7 +13,7 @@ let timeout = process.env.APP_TIMEOUT || 60000;
 let env = process.env.NODE_ENV || 'dev';
 let dev = env == 'dev';
 
-var logger = new winston.Logger({
+let logger = new winston.Logger({
   transports: [
     new (winston.transports.Console)({
       timestamp: () => '[' + new Date().toLocaleString('ru', {
