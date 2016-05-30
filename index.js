@@ -1,16 +1,17 @@
-var influx = require('influx');
-var Promise = require('bluebird');
-var winston = require('winston');
-var request = Promise.promisifyAll(require('request'));
+let Promise = require('bluebird');
+let Winston = require('winston');
+let Influx = Promise.promisifyAll(require('influx'));
+let request = Promise.promisifyAll(require('request'));
 
-var dbName = process.env.APP_DB_NAME || 'home';
-var dbConnectionURL = (process.env.APP_DB_URL || 'http://localhost:8086/') + dbName;
-var dbClient = influx(dbConnectionURL);
-var dbTags = process.env.APP_DB_TAGS ? JSON.parse(process.env.APP_DB_TAGS) : null;
-var dataUrl = process.env.APP_DATA_URL;
-var timeout = process.env.APP_TIMEOUT;
-var env = process.env.NODE_ENV || 'dev';
-var dev = env == 'dev';
+let dbName = process.env.APP_DB_NAME || 'home';
+let dbConnectionURL = (process.env.APP_DB_URL || 'http://localhost:8086/') + dbName;
+let dbClient = Influx(dbConnectionURL);
+let dbTags = process.env.APP_DB_TAGS ? JSON.parse(process.env.APP_DB_TAGS) : null;
+let dbMesurment = process.env.APP_DB_MEASUREMENT || 'weather';
+let dataUrl = process.env.APP_DATA_URL;
+let timeout = process.env.APP_TIMEOUT || 60000;
+let env = process.env.NODE_ENV || 'dev';
+let dev = env == 'dev';
 
 var logger = new winston.Logger({
   transports: [
