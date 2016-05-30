@@ -1,7 +1,7 @@
 var influx = require('influx');
-var request = require('request');
 var Promise = require('bluebird');
 var winston = require('winston');
+var request = Promise.promisifyAll(require('request'));
 
 var dbName = process.env.APP_DB_NAME || 'home';
 var dbConnectionURL = (process.env.APP_DB_URL || 'http://localhost:8086/') + dbName;
@@ -11,8 +11,6 @@ var dataUrl = process.env.APP_DATA_URL;
 var timeout = process.env.APP_TIMEOUT;
 var env = process.env.NODE_ENV || 'dev';
 var dev = env == 'dev';
-
-Promise.promisifyAll(require("request"));
 
 var logger = new winston.Logger({
   transports: [
@@ -121,8 +119,8 @@ function writeTemperature({value, tags = null})
     }
 
     dbClient.writePoint(
-      'temperature',
-      {time: new Date(), value: value},
+      'weather',
+      {time: new Date(), temperature: value},
       tags,
       (err, response) => {
         if (err) return reject(err);
