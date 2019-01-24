@@ -161,6 +161,12 @@ openRTSP -4 -w 1280 -h 720 -f 8 -d 60 rtsp://user:pass@IP:6667/blinkhd > stream.
 ```
 openRTSP -4 -w 1280 -h 720 -f 8 -F stream -P 120 -d 599 rtsp://user:pass@IP:6667/blinkhd
 ```
+### From http
+```
+http://IP/-wvhttp-01-/video.cgi
+http://IP/cgi/jpg/image.cgi
+```
+
 ## External links
 - [View your hubble camera stream whereever you want](http://blok.tiyun.de/2015/view-your-hubble-camera-stream-whereever-you-want)
 - [Improving the Motorola Blink Baby Monitor/Camera](http://www.surfrock66.com/improving-the-motorola-blink-baby-monitorcamera-part-4/)
